@@ -1,0 +1,18 @@
+# 2026-11-16, same clean setup (empty UV_PYTHON_INSTALL_DIR, PATH=/usr/bin:/bin:/usr/sbin:/sbin), branch fix/pin-quickstart-python a3a73b9
+$ cat .python-version
+3.12
+$ uv sync
+Downloading cpython-3.12.16-macos-aarch64-none (download) (23.9MiB)
+ Downloaded cpython-3.12.16-macos-aarch64-none (download)
+Using CPython 3.12.16
+Installed 42 packages in 88ms
+$ uv run python scripts/seed_demo.py
+wrote demo/demo.sqlite — 4 tables, 33 rows
+wrote demo/sources.json, demo/authz.json
+
+$ uv run mnemiq --help | head -2
+usage: mnemiq [-h]
+              {enrich,build,refresh,ask,write,feedback,config,digest-ontology,serve,metrics,sweep,eval,extensions}
+$ uv sync   # with Homebrew python3 3.15.2 on PATH
+Using CPython 3.12.16
+Installed 42 packages in 67ms

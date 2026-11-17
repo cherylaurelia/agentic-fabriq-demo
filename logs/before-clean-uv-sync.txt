@@ -1,0 +1,8 @@
+# 2026-11-16, macOS 26 (arm64), uv with no Python of its own (empty UV_PYTHON_INSTALL_DIR, PATH=/usr/bin:/bin:/usr/sbin:/sbin)
+# git clone https://github.com/agenticfabriq/mnemiq  (main 7a7786b)
+$ uv sync
+Downloading cpython-3.15.2-macos-aarch64-none (download) (26.5MiB)
+ Downloaded cpython-3.15.2-macos-aarch64-none (download)
+Using CPython 3.15.2
+error: Distribution `psycopg-binary==3.3.4 @ registry+https://pypi.org/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform
+hint: You're using CPython 3.15 (`cp315`), but `psycopg-binary` (v3.3.4) only has wheels with the following Python ABI tags: `cp312`, `cp313`, `cp314`

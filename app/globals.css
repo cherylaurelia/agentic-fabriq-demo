@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* From agenticfabriq.com/assets/site.css: #0a0a0a ink on #f8f8f4 paper, slate #5a6072, sage/peach accents;
+   DM Sans body, Newsreader display, JetBrains Mono. */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-paper: #f8f8f4;
+  --color-slate: #5a6072;
+  --color-line: #eceef1;
+  --color-sage: #c3d9a0;
+  --color-peach: #f0b98c;
+  --font-sans: var(--font-dm-sans), -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Show code as typed: JetBrains Mono and DM Sans otherwise draw >= and == as single glyphs. */
+code,
+pre {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}

@@ -1,0 +1,25 @@
+# 2026-11-16, branch fix/pin-quickstart-python a3a73b9 (Python 3.12.16), local llama-server Qwen3-4B-Instruct-2507 Q4_K_M (chat + embeddings), README quickstart steps
+$ uv run mnemiq enrich
+snapshot 6448ac9468e3 (4 tables, 32 indexed values) -> demo/store.duckdb
+(23 s wall)
+$ uv run mnemiq build
+indexed 4 cards, 0 examples -> demo/store.duckdb
+$ uv run mnemiq ask "how many customers are there by country?" --roles analyst
+source function inventory does not cover VIEW BODIES: this source defines no functions of its own, and calls inside a view body still cannot be confirmed, so an answer reading a view reports lineage 'unknown'
+There are a total of 9 customers across the listed countries.
+
+SQL:
+SELECT country, COUNT(*) AS customer_count FROM customer GROUP BY country LIMIT 1000
+
+tables: ['customer']  (2001 ms)
+$ uv run mnemiq ask "how many enterprise customers are there?" --roles analyst
+source function inventory does not cover VIEW BODIES: this source defines no functions of its own, and calls inside a view body still cannot be confirmed, so an answer reading a view reports lineage 'unknown'
+There are 3 enterprise customers.
+
+SQL:
+SELECT COUNT(*) AS enterprise_customers FROM customer WHERE segment_cd = 'A' LIMIT 1000
+
+tables: ['customer']  (2578 ms)
+$ uv run mnemiq ask "what was our total revenue last quarter?" --roles analyst
+source function inventory does not cover VIEW BODIES: this source defines no functions of its own, and calls inside a view body still cannot be confirmed, so an answer reading a view reports lineage 'unknown'
+The tables provided do not contain revenue or price information necessary to calculate total revenue for the last quarter.
